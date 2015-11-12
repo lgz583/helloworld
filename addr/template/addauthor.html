@@ -1,0 +1,22 @@
+{% load staticfiles %}	
+<html>
+<head>
+<title>添加作者</title>
+</head>
+<body background="{% static "1.jpg" %}">
+<center>
+<font  size="+2" face="楷体"> 请输入作者信息</font>
+<br/>
+<br/>
+<br/>
+</center>
+<form action="/submitauthor/" , method="post">
+<div align="center">
+  姓名：<input name="name" type="text" size="20" ><br/><br/>
+  作者编号：<input name="id" type="text" size="20" ><br/><br/>
+  年龄：<input name="age" type="text" size="20" ><br/><br/>
+  国籍：<input name="country" type="text" size="20" ><br/><br/>
+  &nbsp;&nbsp;<input name="submit" type="submit" value="确认">
+</div>
+</body>
+</html>

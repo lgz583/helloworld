@@ -1,0 +1,24 @@
+{% load staticfiles %}	
+<html>
+<head>
+<title>添加图书</title>
+</head>
+<body background="{% static "1.jpg" %}">
+<center>
+<font  size="+2" face="楷体"> 请输入图书信息</font>
+<br/>
+<br/>
+<br/>
+</center>
+<form action="/submit/" , method="post">
+<div align="center">图书名：
+  <input name="title" type="text" size="20" ><br/><br/>
+  ISBN：<input name="isbn" type="text" size="20" ><br/><br/>
+  出版社：<input name="pub" type="text" size="20" ><br/><br/>
+  出版日期：<input name="date" type="text" size="20" ><br/><br/>
+  价格：<input name="price" type="text" size="20" ><br/><br/>
+  <input type="hidden" value="{{authorid}}" name="authorid">
+  &nbsp;&nbsp;<input name="submit" type="submit" value="确认">
+</div>
+</body>
+</html>

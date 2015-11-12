@@ -1,0 +1,43 @@
+{% load staticfiles %}	
+<html>
+<head>
+<title>所有作者</title>
+</head>
+<body background="{% static "1.jpg" %}">
+<center>
+<font  size="+2" face="楷体"> 作者列表</font>
+</center>
+<br/>
+<br/>
+<br/>
+<div class="m">
+<table width="500" border="1" align="center">
+  <tr>
+    <th>作者姓名</th>
+    <th>作者年龄</th>
+    <th>作者国籍</th>
+    <th>作者ID</th>
+    <th>其他</th>
+    <th>其他</th>
+  </tr>
+  <tbody align="center">
+  {% for author in author_list %}
+  <tr>
+    <td>{{author.Name}}</td>
+    <td>{{author.Age}}</td>
+    <td>{{author.Country}}</td>
+    <td>{{author.AuthorID}}</td>
+    <td><a href="/addbook/?id={{author.AuthorID}}"><input type="button"  value="添加图书"></td>
+    <td><a href="/deleteauthor/?id={{author.AuthorID}}"><input type="button"  value="删除作者"></td>
+  </tr>
+  {% endfor %}
+   </tbody>
+</table>
+</div>
+<br/>
+<br/>
+<center>
+ <a href="/home/"><input type="button"  value="返回主页"></a>
+</center>
+</body>
+</html>

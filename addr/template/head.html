@@ -1,0 +1,76 @@
+{% load staticfiles %}	
+<html>
+<head>
+<title>图书管理</title>
+<style type="text/css">
+.titl {
+	height: 80px;
+	width: auto;
+	padding-top: 21px;
+}
+.intro {
+	margin-top: 5px;
+	height: auto;
+	float: left;
+	padding-left: 50px;
+}
+.sear {
+	margin-top: 5px;
+	padding-left: 1000px;
+	height: 60px;
+	padding-top: 10px;
+}
+.lis {
+	position: absolute;	
+	margin-top: 10px;
+	margin-left: 400px;
+	height: auto;
+}
+</style>
+</head>
+<body background="{% static "1.jpg" %}">
+<div align="center" class="titl" >
+<p>
+<font  face="楷体" size="+5"> 图书管理</font></p>
+</div>
+<div class="sear">
+<form name="form1" method="post" action="/search/">
+  <input name="search" type="text" value="请输入作者名称" size="20" onClick="value=''">
+  <input type="submit"  value="搜索">
+  <a href="/addauthor/"><input type="button"  value="添加作者"></a>
+  <a href="/authorlist/"><input type="button"  value="查看所有作者"></a>
+</form>
+</div>
+<div class="intro" >
+
+</div>
+<div class="lis">
+<table width="800" border="1">
+  <tr>
+   <th>图书名</th>
+   <th>作者</th>
+   <th>作者ID</th>
+   <th>图书编号</th>
+   <th>出版社</th>
+   <th>出版日期</th>
+   <th>价格</th>
+   <th>其他</th>
+  </tr>
+  <tbody align="center" >
+  {% for book in book_list %}
+  <tr>
+    <td><a href="/more/?id={{book.ISBN}}">{{book.Title}}</td>
+    <td>{{book.Authors.Name}}</td>
+    <td>{{book.Authors.AuthorID}}</td>
+    <td>{{book.ISBN}}</td>
+    <td>{{book.Publisher}}</td>
+    <td>{{book.PublishDate}}</td>
+    <td>{{book.Price}}</td>
+    <td><a href="/delete/?id={{book.ISBN}}"><input type="button"  value="删除"></td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+</body>
+</html>

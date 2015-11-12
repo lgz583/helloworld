@@ -1,0 +1,51 @@
+{% load staticfiles %}	
+<html>
+<head>
+<title>图书的详细信息</title>
+<style type="text/css">
+</style>
+</head>
+<body background="{% static "1.jpg" %}">
+<center>
+<font face="楷体" size="+3">该图书的详细信息</font>
+</center>
+<br/>
+<br/>
+
+<div class="m">
+<table width="900" border="1" align="center">
+  <tr>
+    <th>图书名</th>
+    <th>ISBN</th>
+    <th>作者</th>
+    <th>出版社</th>
+    <th>出版日期</th>
+    <th>价格</th>
+    <th>作者年龄</th>
+    <th>作者国籍</th>
+    <th>作者ID</th>
+  </tr>
+  <tbody align="center">
+  {% for book in book %}
+  <tr>
+    <td>{{book.Title}}</td>
+    <td>{{book.ISBN}}</td>
+    <td>{{book.Authors.Name}}</td>
+    <td>{{book.Publisher}}</td>
+    <td>{{book.PublishDate}}</td>
+    <td>{{book.Price}}</td>
+    <td>{{book.Authors.Age}}</td>
+    <td>{{book.Authors.Country}}</td>
+    <td>{{book.Authors.AuthorID}}</td>
+  </tr>
+  {% endfor %}
+   </tbody>
+</table>
+</div>
+<br/>
+<br/>
+<center>
+ <a href="/home/"><input type="button"  value="返回主页"></a>
+</center>
+</body>
+</html>

@@ -1,0 +1,77 @@
+{% load staticfiles %}	
+<html>
+<head>
+<title>查询结果</title>
+<style type="text/css">
+.m {
+	margin-top: 20px;
+}
+</style>
+</head>
+<body background="{% static "1.jpg" %}">
+<div>
+<center>
+<font  size="+2" face="楷体"> 该作者的详细信息</font>
+<br/>
+<br/>
+</center>
+<table width="500" border="1" align="center">
+  <tr>
+    <th>姓名</th>
+    <th>ID</th>
+    <th>年龄</th>
+    <th>国籍</th>
+    <th>其他</th>
+    <th>其他</th>
+  </tr>
+  <tbody  align="center">
+  {% for author in L.0 %}
+  <tr>
+    <td>{{author.Name}}</td>
+    <td>{{author.AuthorID}}</td>
+    <td>{{author.Age}}</td>
+    <td>{{author.Country}}</td>
+    <td><a href="/addbook/?id={{author.AuthorID}}"><input type="button"  value="添加图书"></td>
+    <td><a href="/deleteauthor/?id={{author.AuthorID}}"><input type="button"  value="删除作者"></td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</form>
+</div>
+<div  class="m" >
+<center>
+<font  size="+2" face="楷体"> 该作者的图书</font>
+<br/>
+<br/>
+</center>
+<table width="500" border="1" align="center">
+  <tr>
+    <th>图书名</th>
+    <th>ISBN</th>
+    <th>出版社</th>
+    <th>出版日期</th>
+    <th>价格</th>
+    <th>其他</th>
+  </tr>
+  <tbody  align="center">
+  {% for book in L.1 %}
+  <tr>
+    <td>{{book.Title}}</td>
+    <td>{{book.ISBN}}</td>
+    <td>{{book.Publisher}}</td>
+    <td>{{book.PublishDate}}</td>
+    <td>{{book.Price}}</td>
+    <td><a href="/delete/?id={{book.ISBN}}"><input type="button"  value="删除"></td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+<br/>
+<br/>
+<center>
+ <a href="/home/"><input type="button"  value="返回主页"></a>
+</center>
+</body>
+</html>
